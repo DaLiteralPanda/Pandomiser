@@ -36,6 +36,9 @@ client.on('message', message => {
 });
 
 // random word command
+fetch('file.txt')
+  .then(response => response.text())
+
 client.on('message', message => {
   if (message.content === ";randomw") {
     let words= ['hi', 'bye', 'word', 'panda', 'riadrading', 'whump'];
