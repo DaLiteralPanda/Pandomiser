@@ -2,6 +2,7 @@ const { Client, MessageEmbed, Discord, ClientUser } = require('discord.js');
 const client = new Client();
 //prefix = ';'
 
+// Runs when Bot is ready
 client.on('ready', () => {
   console.log("Bot Online!");
 
@@ -16,21 +17,33 @@ client.on('ready', () => {
   //botChannel.send("I am online boiii!");
 });
 
+// help command
+const help = {
+  title: 'Help Command',
+  //thumbnail: 'attachment://logo',
+  color: '#bbdf32',
+  fields: [
+    { name: 'Want to generate random words?', value: `;randomw`},
+    { name: 'Want to generate some random questions?', value: `;randomq`},
+  ],
+  //image: 'attachment://logo',
+};
+
 client.on('message', message => {
   if (message.content === `;help`) {
-    // We can create embeds using the MessageEmbed constructor
-    const help = new MessageEmbed()
-      // Set the title of the field
-      .setTitle('Help Command')
-      // Set the color of the embed
-      .setColor('#bbdf32')
-      // Set the main content of the embed
-      .addFields(
-        { name: 'Want to generate random words?', value: `;randomw`},
-        { name: 'Want to generate some random questions?', value: `;randomq`},
-      )
-    message.channel.send(help);
-  }
+    message.channel.send({embed: help});
+  };
+});
+
+// random word command
+client.on('message', message => {
+  if (message.content === ";randomw") {
+    let words= ['hi', 'bye', 'word', 'panda', 'riadrading', 'whump'];
+
+    let word = Math.floor(Math.random() * words.length);
+
+    message.channel.send(words[word]);
+  };
 });
 
 client.login("NzI3MjA4MTI4MDcxOTkxMzA3.Xvogtg.uqhxBQXUIhxG3e6sISexzEQO8C4");
