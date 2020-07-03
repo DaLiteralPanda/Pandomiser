@@ -1,0 +1,19 @@
+{
+  "name": "abbp",
+  "version": "1.0.0",
+  "description": "Its a randomiser bot",
+  "main": "\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C_files/bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RishitOMG/DJ_Panda.git"
+  },
+  "author": "Panda and Riad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RishitOMG/DJ_Panda/issues"
+  },
+  "homepage": "https://github.com/RishitOMG/DJ_Panda#readme"
+}
