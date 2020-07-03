@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RishitOMG/DJ_Panda.git"
+    "url": "git+https://github.com/RishitOMG/ABBP_Bot.git"
   },
   "author": "Panda and Riad",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RishitOMG/DJ_Panda/issues"
+    "url": "https://github.com/RishitOMG/ABBP_Bot"
   },
   "homepage": "https://github.com/RishitOMG/DJ_Panda#readme"
 }
