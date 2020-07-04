@@ -38,11 +38,11 @@ client.on('message', message => {
 // random word command
 var fs = require('fs'),
     path = require('path'),
-    wordPath = path.join(__dirname, '../data/words.txt');
+    wordPath = path.join(__dirname, './data/words.txt');
 client.on('message', message => {
   if (message.content === ";randomw") {
-    fs.readFile(wordPath, 'utf-8', (err, data) => { 
-      if (err) throw err; 
+    fs.readFile(wordPath, 'utf-8', (err, data) => {
+      if (err) throw err;
       //
       let words = data.split("\n");
       let word = Math.floor(Math.random() * words.length);
