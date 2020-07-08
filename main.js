@@ -9,12 +9,7 @@ client.on('ready', () => {
   client.user.setActivity("p!help");
   client.guilds.cache.forEach((guild) => {
     console.log(guild.name);
-  bot_commands = '727206999317676132';
-  genral = '727206852923883551';
 });
-  let genralChannel = client.channels.cache.get(genral);
-  let botChannel = client.channels.cache.get(bot_commands);
-  //botChannel.send("I am online boiii!");
 });
 
 // help command
@@ -35,10 +30,13 @@ client.on('message', message => {
   };
 });
 
-// random word command
+// File Paths
 const fs = require('fs'),
     path = require('path'),
     wordPath = path.join(__dirname, './data/words.txt');
+    quesPath = path.join(__dirname, './data/Questions.txt');
+
+// Random Word Generator
 client.on('message', message => {
   if (message.content === "p!randomw") {
     fs.readFile(wordPath, 'utf-8', (err, data) => {
@@ -47,6 +45,19 @@ client.on('message', message => {
       let words = data.split("\n");
       let word = Math.floor(Math.random() * words.length);
       message.channel.send(words[word]);
+    });
+  };
+});
+
+// Random Question Generator
+client.on('message', message => {
+  if (message.content === "p!randomq") {
+    fs.readFile(quesPath, 'utf-8', (err, data) => {
+      if (err) throw err;
+      //
+      let questions = data.split("\n");
+      let question = Math.floor(Math.random() * questions.length);
+      message.channel.send(questions[question]);
     });
   };
 });
