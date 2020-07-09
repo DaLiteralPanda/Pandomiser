@@ -1,5 +1,7 @@
 const { Client, MessageEmbed, Discord, ClientUser } = require('discord.js');
 const client = new Client();
+const fs = require('fs');
+const path = require('path');
 //prefix = 'p!'
 
 // Runs when Bot is ready
@@ -36,14 +38,11 @@ client.on('message', message => {
 });
 
 // random word command
-const fs = require('fs'),
-    path = require('path'),
-    wordPath = path.join(__dirname, './data/words.txt');
+const wordPath = path.join(__dirname, './data/words.txt');
 client.on('message', message => {
   if (message.content === "p!randomw") {
     fs.readFile(wordPath, 'utf-8', (err, data) => {
       if (err) throw err;
-      //
       let words = data.split("\n");
       let word = Math.floor(Math.random() * words.length);
       message.channel.send(words[word]);
@@ -51,4 +50,16 @@ client.on('message', message => {
   };
 });
 
-client.login("NzI3MjA4MTI4MDcxOTkxMzA3.Xvogtg.uqhxBQXUIhxG3e6sISexzEQO8C4");
+const questionPath = path.join(__dirname, './data/Questions.txt');
+client.on('message', message => {
+  if (message.content === "p!randomq") {
+    fs.readFile(wordPath, 'utf-8', (err, data) => {
+      if (err) throw err;
+      let questions = data.split("\n");
+      let question = Math.floor(Math.random() * questions.length);
+      message.channel.send(questions[question]);
+    });
+  };
+});
+
+client.login(process.env.KEY);
