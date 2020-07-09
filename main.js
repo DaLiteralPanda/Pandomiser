@@ -53,7 +53,7 @@ client.on('message', message => {
 const questionPath = path.join(__dirname, './data/Questions.txt');
 client.on('message', message => {
   if (message.content === "p!randomq") {
-    fs.readFile(wordPath, 'utf-8', (err, data) => {
+    fs.readFile(questionPath, 'utf-8', (err, data) => {
       if (err) throw err;
       let questions = data.split("\n");
       let question = Math.floor(Math.random() * questions.length);
