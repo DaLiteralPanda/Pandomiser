@@ -22,7 +22,7 @@ client.on('ready', () => {
 //invite command
 
 const invite = new Discord.MessageEmbed()
-  .setColor(''#bbdf32')
+  .setColor('#bbdf32')
   .setThumbnail('https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg')
   .setAuthor('Pandomiser', 'https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg')
   .addFields(
