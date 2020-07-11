@@ -19,16 +19,29 @@ client.on('ready', () => {
   //botChannel.send("I am online boiii!");
 });
 
+//invite command
+
+const invite = {
+  title: 'Invite link',
+  thumbnail: 'attachment:https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
+  color: '#bbdf32',
+  fields: [
+    { name: 'Invite the bot to your server:', value: `https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=313408&scope=bot`},
+  ],
+};
+
+client.on('message', message => {
+  if (message.content === `p!invite`) {
+    message.channel.send({embed: invite});
 // help command
 const help = {
   title: 'Help Command',
-  //thumbnail: 'attachment://logo',
+  thumbnail: 'attachment:https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
   color: '#bbdf32',
   fields: [
     { name: 'Want to generate random words?', value: `p!randomw`},
     { name: 'Want to generate some random questions?', value: `p!randomq`},
   ],
-  //image: 'attachment://logo',
 };
 
 client.on('message', message => {
