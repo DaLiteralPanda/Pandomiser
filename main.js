@@ -44,8 +44,7 @@ if(command === "invite"){
 const wordPath = path.join(__dirname, './data/words.txt');
 	  
   if(commmand === "randomw") {
-    fs.readFile(wordPath, 'utf-8', (err, data) => {
-      if (err) throw err;
+    const data = fs.readFileSync(wordPath, 'utf-8')
       let words = data.split("\n");
       let word = Math.floor(Math.random() * words.length);
       message.channel.send(words[word]);
@@ -56,8 +55,7 @@ const wordPath = path.join(__dirname, './data/words.txt');
 const questionPath = path.join(__dirname, './data/Questions.txt');
 	
   if(commmand === "randomq") {
-    fs.readFile(questionPath, 'utf-8', (err, data) => {
-      if (err) throw err;
+    const data = fs.readFileSync(questionPath, 'utf-8')
       let questions = data.split("\n");
       let question = Math.floor(Math.random() * questions.length);
       message.channel.send(questions[question]);
