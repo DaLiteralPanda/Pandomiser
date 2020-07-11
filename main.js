@@ -33,6 +33,8 @@ const invite = {
 client.on('message', message => {
   if (message.content === `p!invite`) {
     message.channel.send({embed: invite});
+    };
+});
 // help command
 const help = {
   title: 'Help Command',
