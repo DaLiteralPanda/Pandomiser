@@ -20,8 +20,8 @@ client.on('ready', () => {
 });
 
 //invite command
-
-if(message.content === `p!invite`){
+client.on('message', message => {
+if (message.content === `p!invite`){
     let inviteembed = new Discord.MessageEmbed()
     .setColor('#bbdf32')
     .setThumbnail('https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg')
@@ -33,6 +33,7 @@ if(message.content === `p!invite`){
     .setFooter('Made By riad#9084 | DaLiteralPanda#9453')
     message.channel.send(inviteembed)
   };
+});
 // help command
 const help = {
   title: 'Help Command',
