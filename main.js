@@ -21,18 +21,19 @@ client.on('ready', () => {
 
 //invite command
 
-const invite = {
-  title: 'Invite link',
-  thumbnail: {url:'https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
-  color: '#bbdf32',
-  fields: [
-    { name: 'Invite the bot to your server:', value: `https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=313408&scope=bot`},
-  ],
-};
+const invite = new Discord.MessageEmbed()
+  .setColor(''#bbdf32')
+  .setThumbnail('https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg')
+  .setAuthor('Pandomiser', 'https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg')
+  .addFields(
+		{ name: 'Thanks for inviting our bot', value: 'invite link'},
+  )
+  .setURL("https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=313408&scope=bot")
+  .setFooter('Made By riad#9084 | DaLiteralPanda#9453')
 
 client.on('message', message => {
   if (message.content === `p!invite`) {
-    message.channel.send({embed: invite});
+    message.channel.send(invite);
     };
 });
 // help command
