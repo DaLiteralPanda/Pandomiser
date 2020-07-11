@@ -48,9 +48,7 @@ const wordPath = path.join(__dirname, './data/words.txt');
       let words = data.split("\n");
       let word = Math.floor(Math.random() * words.length);
       message.channel.send(words[word]);
-    });
-  };
-});
+    };
 
 const questionPath = path.join(__dirname, './data/Questions.txt');
 	
@@ -60,7 +58,5 @@ const questionPath = path.join(__dirname, './data/Questions.txt');
       let question = Math.floor(Math.random() * questions.length);
       message.channel.send(questions[question]);
     });
-  };
-});
 
 client.login(process.env.KEY);
