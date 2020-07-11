@@ -57,6 +57,6 @@ const questionPath = path.join(__dirname, './data/Questions.txt');
       let questions = data.split("\n");
       let question = Math.floor(Math.random() * questions.length);
       message.channel.send(questions[question]);
-    });
+    };
 
 client.login(process.env.KEY);
