@@ -29,7 +29,7 @@ const invite = new Discord.MessageEmbed()
 		{ name: 'Thanks for inviting our bot', value: 'invite link'},
   )
   .setURL("https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=313408&scope=bot")
-  .setFooter('Made By riad#9084 | DaLiteralPanda#9453')
+  .setFooter('Made By riad#9084 | DaLiteralPanda#9453');
 
 client.on('message', message => {
   if (message.content === `p!invite`) {
