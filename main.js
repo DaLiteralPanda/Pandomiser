@@ -23,7 +23,7 @@ client.on('ready', () => {
 
 const invite = {
   title: 'Invite link',
-  thumbnail: 'attachment:https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
+  image: 'attachment:https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
   color: '#bbdf32',
   fields: [
     { name: 'Invite the bot to your server:', value: `https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=313408&scope=bot`},
@@ -38,7 +38,7 @@ client.on('message', message => {
 // help command
 const help = {
   title: 'Help Command',
-  thumbnail: 'attachment:https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
+  image: 'attachment:https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
   color: '#bbdf32',
   fields: [
     { name: 'Want to generate random words?', value: `p!randomw`},
