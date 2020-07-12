@@ -24,18 +24,17 @@ client.on('ready', () => {
     color: "#bbdf32",
     Author: {
     name: 'Pandomiser',
-		icon_url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
+    icon_url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
     },
     thumbnail: {
-		url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
+    url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
     },
     fields: [{
-			name: 'Thanks for inviting our bot to your server!',
-			value: '[Invite link](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=313408&scope=bot)',
-		}],  
-      
-      footer: {
-		text: 'Made by riad#9084 | DaLiteralPanda#9453',
+    name: 'Thanks for inviting our bot to your server!',
+    value: `[Invite link](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=313408&scope=bot)`,
+    }],  
+    footer: {
+    text: 'Made by riad#9084 | DaLiteralPanda#9453',
     },
     };
 
