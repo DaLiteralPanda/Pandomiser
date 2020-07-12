@@ -9,7 +9,7 @@ client.on('ready', () => {
   console.log("Bot Online!");
 
   client.user.setActivity("p!help");
-})
+});
 
   Client.on("message", async message => {
   if (!message.content.startsWith(prefix)) return;
@@ -61,5 +61,5 @@ const questionPath = path.join(__dirname, './data/Questions.txt');
       let question = Math.floor(Math.random() * questions.length);
       message.channel.send(questions[question]);
 };
-})
+});
 client.login(process.env.KEY);
