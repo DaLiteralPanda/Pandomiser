@@ -20,15 +20,29 @@ client.on('ready', () => {
 });
 
 //invite command
+    const invite = {
+    color: "#bbdf32",
+    Author: {
+    name: 'Pandomiser',
+		icon_url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
+    },
+    thumbnail: {
+		url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
+    },
+    fields: [{
+			name: 'Thanks for inviting our bot to your server!',
+			value: '[Invite link](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=313408&scope=bot)',
+		}],  
+      
+      footer: {
+		text: 'Made by riad#9084 | DaLiteralPanda#9453',
+    },
+    };
+
 client.on('message', message => {
   if (message.content === `p!invite`) {
-    let embed = new Discord.MessageEmbed()
-    .setAuthor("Pandomiser","https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
-    .setThumbnail("https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
-    .setColor("#bbdf32")
-    .addField("Thanks for adding our bot to your server!","[Invite link](https://discordapp.com/oauth2/authorize?client_id=724885507263168602&scope=bot&permissions=8208)")
-    message.channel.send(embed)
-  }
+    message.channel.send({embed: invite});
+  };
 });
 // help command
 const help = {
