@@ -18,7 +18,7 @@ Client.on("message", async message => {
 
   let command = message.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length);
-});
+
 
 //invite command
 if(command === "invite"){
