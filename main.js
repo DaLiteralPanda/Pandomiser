@@ -46,13 +46,13 @@ client.on('message', message => {
 // help command
 const help = {
   title: 'Help Command',
-  //thumbnail: 'attachment://logo',
+  thumbnail: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
   color: '#bbdf32',
   fields: [
     { name: 'Want to generate random words?', value: `p!randomw`},
     { name: 'Want to generate some random questions?', value: `p!randomq`},
   ],
-  //image: 'attachment://logo',
+  image: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
 };
 
 client.on('message', message => {
