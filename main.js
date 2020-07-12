@@ -25,7 +25,7 @@ if(message.content === "p!invite"){
 )};
 // help command
 client.on('message', message => {
-  if(command === "help"){
+  if(command === "p!help"){
     let embed = new Discord.MessageEmbed()
     .setTitle("Help Commmand")
     .setThumbnail("https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
