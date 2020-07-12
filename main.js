@@ -43,23 +43,29 @@ if(command === "invite"){
 // random word command
 	  
 const wordPath = path.join(__dirname, './data/words.txt');
-	  
-  if(commmand === "randomw") {
-    const data = fs.readFileSync(wordPath, 'utf-8')
+client.on('message', message => {
+  if (message.content === "p!randomw") {
+    fs.readFile(wordPath, 'utf-8', (err, data) => {
+      if (err) throw err;
       let words = data.split("\n");
       let word = Math.floor(Math.random() * words.length);
       message.channel.send(words[word]);
-};
+    });
+  };
+});
 
-//random question generator
+//random question/topic generator
 
 const questionPath = path.join(__dirname, './data/Questions.txt');
-	
-  if(commmand === "randomq") {
-    const data = fs.readFileSync(questionPath, 'utf-8')
+client.on('message', message => {
+  if (message.content === "p!randomq") {
+    fs.readFile(questionPath, 'utf-8', (err, data) => {
+      if (err) throw err;
       let questions = data.split("\n");
       let question = Math.floor(Math.random() * questions.length);
       message.channel.send(questions[question]);
-};
+    });
+  };
+});
 });
 client.login(process.env.KEY);
