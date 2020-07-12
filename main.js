@@ -27,7 +27,7 @@ if(command === "invite"){
     .addField("Thanks For Adding Me To Your Server","[My Invite Link](https://discordapp.com/oauth2/authorize?client_id=724885507263168602&scope=bot&permissions=8208)")
     .setFooter('Made By riad#9084 | DaLiteralPanda#9453')
     message.channel.send(embed)
-  };
+};
 // help command
 
   if(command === "help"){
@@ -38,7 +38,7 @@ if(command === "invite"){
     .addField("Want to generate random words?","p!randomw")
     .addField("Want to generate random words?","p!randomw")
     message.channel.send(embed)
-  }
+};
 // random word command
 	  
 const wordPath = path.join(__dirname, './data/words.txt');
@@ -48,7 +48,9 @@ const wordPath = path.join(__dirname, './data/words.txt');
       let words = data.split("\n");
       let word = Math.floor(Math.random() * words.length);
       message.channel.send(words[word]);
-    };
+};
+
+//random question generator
 
 const questionPath = path.join(__dirname, './data/Questions.txt');
 	
@@ -57,6 +59,6 @@ const questionPath = path.join(__dirname, './data/Questions.txt');
       let questions = data.split("\n");
       let question = Math.floor(Math.random() * questions.length);
       message.channel.send(questions[question]);
-    };
+};
 
 client.login(process.env.KEY);
