@@ -31,7 +31,7 @@ client.on('ready', () => {
     },
     fields: [{
     name: 'Thanks for inviting our bot to your server!',
-    value: `[Invite link](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=313408&scope=bot)`,
+    value: `[Invite link](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=387136&scope=bot)`,
     }],  
     footer: {
     text: 'Made by riad#9084 | DaLiteralPanda#9453',
