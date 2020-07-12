@@ -41,6 +41,7 @@ if(command === "invite"){
     .addField("Want to generate random words?","p!randomw")
     message.channel.send(embed)
 };
+});
 // random word command
 	  
 const wordPath = path.join(__dirname, './data/words.txt');
@@ -68,5 +69,5 @@ client.on('message', message => {
     });
   };
 });
-});
+
 client.login(process.env.KEY);
