@@ -11,14 +11,15 @@ client.on('ready', () => {
   client.user.setActivity("p!help");
 });
 
-  Client.on("message", async message => {
+Client.on("message", async message => {
   if (!message.content.startsWith(prefix)) return;
 
   if (message.channel.type !== "text") return;
 
   let command = message.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length);
-	
+});
+
 //invite command
 if(command === "invite"){
     let embed = new Discord.MessageEmbed()
