@@ -52,7 +52,7 @@ const help = {
     { name: 'Want to generate random words?', value: `p!randomw`},
     { name: 'Want to generate some random questions?', value: `p!randomq`},
   ],
-  image: { url'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
+  //image: { url'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
 };
 
 client.on('message', message => {
