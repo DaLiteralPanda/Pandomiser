@@ -2,41 +2,42 @@ const { Client, MessageEmbed, Discord, ClientUser } = require('discord.js');
 const client = new Client();
 const fs = require('fs');
 const path = require('path');
-//const prefix = 'p!';
+//prefix = 'p!'
 
 // Runs when Bot is ready
 client.on('ready', () => {
   console.log("Bot Online!");
 
   client.user.setActivity("p!help");
+  client.guilds.cache.forEach((guild) => {
+    console.log(guild.name);
+  bot_commands = '727206999317676132';
+  genral = '727206852923883551';
+});
+  let genralChannel = client.channels.cache.get(genral);
+  let botChannel = client.channels.cache.get(bot_commands);
+  //botChannel.send("I am online boiii!");
 });
 
-//invite command
-client.on('message', message => {
-if(message.content === "p!invite"){
-    let embed = new Discord.MessageEmbed()
-    .setColor('#bbdf32')
-    .setThumbnail('https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg')
-    .setAuthor('Pandomiser', 'https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg')
-    .addField("Thanks For Adding Me To Your Server","[My Invite Link](https://discordapp.com/oauth2/authorize?client_id=724885507263168602&scope=bot&permissions=8208)")
-    .setFooter('Made By riad#9084 | DaLiteralPanda#9453')
-    message.channel.send(embed)
-};
-)};
 // help command
-client.on('message', message => {
-  if(command === "p!help"){
-    let embed = new Discord.MessageEmbed()
-    .setTitle("Help Commmand")
-    .setThumbnail("https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
-    .setColor("#bbdf32")
-    .addField("Want to generate random words?","p!randomw")
-    .addField("Want to generate random words?","p!randomw")
-    message.channel.send(embed)
+const help = {
+  title: 'Help Command',
+  //thumbnail: 'attachment://logo',
+  color: '#bbdf32',
+  fields: [
+    { name: 'Want to generate random words?', value: `p!randomw`},
+    { name: 'Want to generate some random questions?', value: `p!randomq`},
+  ],
+  //image: 'attachment://logo',
 };
-)};
+
+client.on('message', message => {
+  if (message.content === `p!help`) {
+    message.channel.send({embed: help});
+  };
+});
+
 // random word command
-	  
 const wordPath = path.join(__dirname, './data/words.txt');
 client.on('message', message => {
   if (message.content === "p!randomw") {
@@ -48,8 +49,6 @@ client.on('message', message => {
     });
   };
 });
-
-//random question/topic generator
 
 const questionPath = path.join(__dirname, './data/Questions.txt');
 client.on('message', message => {
