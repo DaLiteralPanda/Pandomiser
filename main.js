@@ -22,7 +22,7 @@ client.on('ready', () => {
 //invite command
     const invite = {
     color: "#bbdf32",
-    Author: {
+    author: {
     name: 'Pandomiser',
     icon_url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
     },
