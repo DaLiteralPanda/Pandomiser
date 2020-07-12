@@ -2,7 +2,7 @@ const { Client, MessageEmbed, Discord, ClientUser } = require('discord.js');
 const client = new Client();
 const fs = require('fs');
 const path = require('path');
-const prefix = 'p!';
+//const prefix = 'p!';
 
 // Runs when Bot is ready
 client.on('ready', () => {
@@ -11,17 +11,9 @@ client.on('ready', () => {
   client.user.setActivity("p!help");
 });
 
-Client.on("message", async message => {
-  if (!message.content.startsWith(prefix)) return;
-
-  if (message.channel.type !== "text") return;
-
-  let command = message.content.toLowerCase().split(" ")[0];
-  command = command.slice(prefix.length);
-
-
 //invite command
-if(command === "invite"){
+client.on('message', message => {
+if(message.content === "p!invite"){
     let embed = new Discord.MessageEmbed()
     .setColor('#bbdf32')
     .setThumbnail('https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg')
@@ -30,8 +22,9 @@ if(command === "invite"){
     .setFooter('Made By riad#9084 | DaLiteralPanda#9453')
     message.channel.send(embed)
 };
+)};
 // help command
-
+client.on('message', message => {
   if(command === "help"){
     let embed = new Discord.MessageEmbed()
     .setTitle("Help Commmand")
@@ -41,7 +34,7 @@ if(command === "invite"){
     .addField("Want to generate random words?","p!randomw")
     message.channel.send(embed)
 };
-});
+)};
 // random word command
 	  
 const wordPath = path.join(__dirname, './data/words.txt');
