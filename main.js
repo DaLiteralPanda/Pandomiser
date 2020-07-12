@@ -19,6 +19,17 @@ client.on('ready', () => {
   //botChannel.send("I am online boiii!");
 });
 
+//invite command
+client.on('message', message => {
+  if (message.content === `p!invite`) {
+    let embed = new Discord.MessageEmbed()
+    .setAuthor("Pandomiser","https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
+    .setThumbnail("https://cdn.discordapp.com/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
+    .setColor("#bbdf32")
+    .addField("Thanks for adding our bot to your server!","[Invite link](https://discordapp.com/oauth2/authorize?client_id=724885507263168602&scope=bot&permissions=8208)")
+    message.channel.send(embed)
+  }
+});
 // help command
 const help = {
   title: 'Help Command',
