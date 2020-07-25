@@ -37,25 +37,6 @@ client.on('message', message => {
   };
 });
 
-// Special Command lmao
-client.on('message', message => {
-if (messages.author.id == "579292491606523914") {
-    if (message.content === `p!plan_annoy_deploy100`) {
-      for (let i=0; i<[100];i++) {
-        const channel = client.channels.get("730108186543259729");
-        if (!channel) return console.error("The channel does not exist!");
-          channel.join().then(connection => {
-            // Yay, it worked!
-            console.log("Successfully connected.");
-        }).catch(e => {
-          // Oh no, it errored! Let's log it to console :)
-          console.error(e);
-        });
-      };
-    };
-  };
-});
-
 // random word command
 const wordPath = path.join(__dirname, './data/words.txt');
 client.on('message', message => {
