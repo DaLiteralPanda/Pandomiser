@@ -101,7 +101,7 @@ client.on('message', message => {
   };
 });
 
-const suggestionChannel = client.guilds.cache.get(727206852923883548).channels.cache.get(730476984194433163)
+const suggestionChannel = client.channels.cache.get(730476984194433163);
 client.on('message', message => {
   if (message.content.startsWith("p!suggestion")) {
     const suggestion = message.content.replace("p!suggestion ", "");
