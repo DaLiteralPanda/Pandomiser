@@ -25,9 +25,10 @@ const help = {
   //thumbnail: 'attachment://logo',
   color: '#bbdf32',
   fields: [
-    { name: 'Want to generate random words?', value: `p!randomw`},
-    { name: 'Want to generate some random questions?', value: `p!randomq`},
+    {name: 'Want to generate random words?', value: `p!randomw`},
+    {name: 'Want to generate some random questions?', value: `p!randomq`},
     {name: "Want to get inspired (aka get some quotes)?", value: `p!randomQuote`},
+    {name: "Want to suggest a question?", value: `p!suggestion [Suggetion here]`}
   ],
   //image: 'attachment://logo',
 };
@@ -75,5 +76,9 @@ client.on('message', message => {
   };
 });
 
+const suggestionChannel = client.guilds.get("727206852923883548").channels.get("730476984194433163")
+if (message.content.startsWith("p!suggestion")) {
+  const suggestion = message.content.replace("p!suggestion ", "")
+  suggestionChannel.send(suggestion).then(msg => msg.react("✅")).then(msg => msg.react("❎"))
 
 client.login(process.env.KEY);
