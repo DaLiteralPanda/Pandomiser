@@ -19,10 +19,34 @@ client.on('ready', () => {
   //botChannel.send("I am online boiii!");
 });
 
+//invite command
+    const invite = {
+    color: "#bbdf32",
+    author: {
+    name: 'Pandomiser',
+    icon_url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
+    },
+    thumbnail: {
+    url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
+    },
+    fields: [{
+    name: 'Thanks for inviting our bot to your server!',
+    value: `[Invite link](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=387136&scope=bot)`,
+    }],  
+    footer: {
+    text: 'Made by riad#9084 | DaLiteralPanda#9453',
+    },
+    };
+
+client.on('message', message => {
+  if (message.content === `p!invite`) {
+    message.channel.send({embed: invite});
+  };
+});
 // help command
 const help = {
   title: 'Help Command',
-  //thumbnail: 'attachment://logo',
+  thumbnail: { url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
   color: '#bbdf32',
   fields: [
     {name: 'Want to generate random words?', value: `p!randomw`},
@@ -31,7 +55,7 @@ const help = {
     {name: "Want to suggest a question?", value: `p!suggestion [Suggetion here]`},
     {name: 'Want to invite the bot?', value: `p!invite`},
   ],
-  //image: 'attachment://logo',
+  //image: { url'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
 };
 
 client.on('message', message => {
