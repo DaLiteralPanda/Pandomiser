@@ -27,6 +27,7 @@ const help = {
   fields: [
     { name: 'Want to generate random words?', value: `p!randomw`},
     { name: 'Want to generate some random questions?', value: `p!randomq`},
+    {name: "Want to get inspired (aka get some quotes)?", value: `p!randomQuote`},
   ],
   //image: 'attachment://logo',
 };
@@ -50,7 +51,7 @@ client.on('message', message => {
   };
 });
 
-const questionPath = path.join(__dirname, './data/Questions.txt');
+const questionPath = path.join(__dirname, './data/questions.txt');
 client.on('message', message => {
   if (message.content === "p!randomq") {
     fs.readFile(questionPath, 'utf-8', (err, data) => {
@@ -61,5 +62,18 @@ client.on('message', message => {
     });
   };
 });
+
+const questionPath = path.join(__dirname, './data/quotes.txt');
+client.on('message', message => {
+  if (message.content === "p!randomQuote") {
+    fs.readFile(questionPath, 'utf-8', (err, data) => {
+      if (err) throw err;
+      let quotes = data.split("\n");
+      let quote = Math.floor(Math.random() * questions.length);
+      message.channel.send(quotes[quote]);
+    });
+  };
+});
+
 
 client.login(process.env.KEY);
