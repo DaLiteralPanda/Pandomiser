@@ -52,7 +52,7 @@ const help = {
     {name: 'Want to generate random words?', value: `p!randomw`},
     {name: 'Want to generate some random questions?', value: `p!randomq`},
     {name: "Want to get inspired (aka get some quotes)? NOT REAL QUOTES LMAO", value: `p!randomQuote`},
-    {name: "Want to suggest something? NOT ACTUALLY WORKING RN", value: `p!suggestion [Suggetion here]`},
+    {name: "Want to suggest something?", value: `p!suggestion [Suggetion here]`},
     {name: 'Want to invite the bot?', value: `p!invite`},
   ],
   //image: { url'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
