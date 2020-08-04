@@ -103,7 +103,7 @@ client.on('message', message => {
 
 const suggestionChannel = client.channels.cache.get("730476984194433163");
 client.on('message', message => {
-  if (message.content.startsWith("p!suggestion")) {
+  if (message.content === "p!suggestion") {
     const suggestion = message.content.replace("p!suggestion ", "");
     suggestionChannel.send(suggestion)
     // suggestionChannel.send(suggestion).then(msg => msg.react("✅")).then(msg => msg.react("❎"));
