@@ -49,9 +49,11 @@ const help = {
   thumbnail: { url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
   color: '#bbdf32',
   fields: [
-    { name: 'Want to generate random words?', value: `p!randomw`},
-    { name: 'Want to generate some random questions?', value: `p!randomq`},
-    { name: 'Want to invite the bot?', value: `p!invite`},
+    {name: 'Want to generate random words?', value: `p!randomw`},
+    {name: 'Want to generate some random questions?', value: `p!randomq`},
+    {name: "Want to get inspired (aka get some quotes)?", value: `p!randomQuote`},
+    {name: "Want to suggest a question?", value: `p!suggestion [Suggetion here]`},
+    {name: 'Want to invite the bot?', value: `p!invite`},
   ],
   //image: { url'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
 };
@@ -75,7 +77,7 @@ client.on('message', message => {
   };
 });
 
-const questionPath = path.join(__dirname, './data/Questions.txt');
+const questionPath = path.join(__dirname, './data/questions.txt');
 client.on('message', message => {
   if (message.content === "p!randomq") {
     fs.readFile(questionPath, 'utf-8', (err, data) => {
@@ -86,5 +88,22 @@ client.on('message', message => {
     });
   };
 });
+
+const questionPath = path.join(__dirname, './data/quotes.txt');
+client.on('message', message => {
+  if (message.content === "p!randomQuote") {
+    fs.readFile(questionPath, 'utf-8', (err, data) => {
+      if (err) throw err;
+      let quotes = data.split("\n");
+      let quote = Math.floor(Math.random() * questions.length);
+      message.channel.send(quotes[quote]);
+    });
+  };
+});
+
+const suggestionChannel = client.guilds.get("727206852923883548").channels.get("730476984194433163")
+if (message.content.startsWith("p!suggestion")) {
+  const suggestion = message.content.replace("p!suggestion ", "")
+  suggestionChannel.send(suggestion).then(msg => msg.react("✅")).then(msg => msg.react("❎"))
 
 client.login(process.env.KEY);
