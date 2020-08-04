@@ -1,4 +1,4 @@
-![<iframe src="https://discordapp.com/widget?id=727206852923883548&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>]((https://discordapp.com/api/guilds/727206852923883548/embed.png))
+![<iframe src="https://discordapp.com/widget?id=727206852923883548&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>](https://discordapp.com/api/guilds/727206852923883548/embed.png)
 
 # Pandomiser
 
