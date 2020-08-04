@@ -51,8 +51,8 @@ const help = {
   fields: [
     {name: 'Want to generate random words?', value: `p!randomw`},
     {name: 'Want to generate some random questions?', value: `p!randomq`},
-    {name: "Want to get inspired (aka get some quotes)?", value: `p!randomQuote`},
-    {name: "Want to suggest a question? NOT ACTUALLY WORKING RN", value: `p!suggestion [Suggetion here]`},
+    {name: "Want to get inspired (aka get some quotes)? NOT REAL QUOTES LMAO", value: `p!randomQuote`},
+    {name: "Want to suggest something? NOT ACTUALLY WORKING RN", value: `p!suggestion [Suggetion here]`},
     {name: 'Want to invite the bot?', value: `p!invite`},
   ],
   //image: { url'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
@@ -105,8 +105,10 @@ const suggestionChannel = client.channels.cache.get(730476984194433163);
 client.on('message', message => {
   if (message.content.startsWith("p!suggestion")) {
     const suggestion = message.content.replace("p!suggestion ", "");
-    suggestionChannel.send(suggestion)
+    suggestionChannel.send(suggestion);
     // suggestionChannel.send(suggestion).then(msg => msg.react("✅")).then(msg => msg.react("❎"));
   };
 });
-client.login(process.env.KEY);
+client.login("NzI3MjA4MTI4MDcxOTkxMzA3.XwdFZQ.s9CKNupdWfNgq9O500C4pA5h8yQ");
+
+// process.env.KEY
