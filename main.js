@@ -28,7 +28,8 @@ const help = {
     {name: 'Want to generate random words?', value: `p!randomw`},
     {name: 'Want to generate some random questions?', value: `p!randomq`},
     {name: "Want to get inspired (aka get some quotes)?", value: `p!randomQuote`},
-    {name: "Want to suggest a question?", value: `p!suggestion [Suggetion here]`}
+    {name: "Want to suggest a question?", value: `p!suggestion [Suggetion here]`},
+    {name: 'Want to invite the bot?', value: `p!invite`},
   ],
   //image: 'attachment://logo',
 };
