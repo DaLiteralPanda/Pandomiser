@@ -101,9 +101,11 @@ client.on('message', message => {
   };
 });
 
-// const suggestionChannel = client.guilds.cache.get("727206852923883548").channels.get("730476984194433163");
-// if (message.content.startsWith("p!suggestion")) {
-//   const suggestion = message.content.replace("p!suggestion ", "");
-//   suggestionChannel.send(suggestion).then(msg => msg.react("✅")).then(msg => msg.react("❎"));
-// };
+const suggestionChannel = client.channels.cache.get("730476984194433163");
+client.on('message', message => {
+  if (message.content.startsWith("p!suggestion")) {
+    const suggestion = message.content.replace("p!suggestion ", "");
+    suggestionChannel.send(suggestion).then(msg => msg.react("✅")).then(msg => msg.react("❎"));
+  };
+});
 client.login(process.env.KEY);
