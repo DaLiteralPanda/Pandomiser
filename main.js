@@ -32,7 +32,7 @@ client.on('ready', () => {
     fields: [{
     name: 'Thanks for inviting our bot to your server!',
     value: `[Invite link](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=387136&scope=bot)`,
-    }],  
+    }],
     footer: {
     text: 'Made by riad#9084 | DaLiteralPanda#9453',
     },
@@ -89,13 +89,13 @@ client.on('message', message => {
   };
 });
 
-const questionPath = path.join(__dirname, './data/quotes.txt');
+const quotePath = path.join(__dirname, './data/quotes.txt');
 client.on('message', message => {
   if (message.content === "p!randomQuote") {
-    fs.readFile(questionPath, 'utf-8', (err, data) => {
+    fs.readFile(quotePath, 'utf-8', (err, data) => {
       if (err) throw err;
       let quotes = data.split("\n");
-      let quote = Math.floor(Math.random() * questions.length);
+      let quote = Math.floor(Math.random() * quotes.length);
       message.channel.send(quotes[quote]);
     });
   };
