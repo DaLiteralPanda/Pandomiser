@@ -101,14 +101,12 @@ client.on('message', message => {
   };
 });
 
-const suggestionChannel = client.channels.cache.get(730476984194433163);
 client.on('message', message => {
   if (message.content.startsWith("p!suggestion")) {
     const suggestion = message.content.replace("p!suggestion ", "");
-    suggestionChannel.send(suggestion);
-    // suggestionChannel.send(suggestion).then(msg => msg.react("✅")).then(msg => msg.react("❎"));
-  };
+    client.channels.cache.get("730476984194433163").send(suggestion).then(msg => { msg.react("✅"); msg.react("❎")});
+  }
 });
-client.login("NzI3MjA4MTI4MDcxOTkxMzA3.XwdFZQ.s9CKNupdWfNgq9O500C4pA5h8yQ");
+client.login(process.env.KEY);
 
 // process.env.KEY
