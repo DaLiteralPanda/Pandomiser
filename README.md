@@ -21,4 +21,4 @@ OR
 
 We made a command so you can suggest things from the comfort of your own server by using the command `p!suggestion [Suggestion goes here]`
 
-Also invite the bot to your server by clicking [**here**](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=387136&scope=bot)
+Also invite the bot to your server by clicking [**Here!**](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=387136&scope=bot)
