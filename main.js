@@ -7,13 +7,13 @@ var markovQuotes, words, questions;
 const quotePath = __dirname + '/data/quotes.txt';
 const questionPath = __dirname + '/data/questions.txt';
 const wordPath = __dirname + '/data/words.txt';
+client.login(process.env.KEY);
 const activity_list = [
   `${prefix}help`,
   `${prefix}invite`,
   `${client.guilds.cache.size} servers!`
 ]
 
-client.login(process.env.KEY);
 client.on('ready', () => {
   setInterval(() => {
         const index = Math.floor(Math.random() * (activity_list.length - 1) + 1);
