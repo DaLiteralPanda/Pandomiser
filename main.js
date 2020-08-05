@@ -15,6 +15,11 @@ const activity_list = [
 ]
 
 client.on('ready', () => {
+  const activity_list = [
+    `${prefix}help`,
+    `${prefix}invite`,
+    `${client.guilds.cache.size} servers!`
+  ]
   setInterval(() => {
         const index = Math.floor(Math.random() * (activity_list.length - 1) + 1);
         client.user.setActivity(activity_list[index], { type: 'WATCHING' });
