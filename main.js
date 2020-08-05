@@ -13,6 +13,7 @@ const activity_list = [
   `${client.guilds.cache.size} servers!`
 ]
 
+client.login(process.env.KEY);
 client.on('ready', () => {
   setInterval(() => {
         const index = Math.floor(Math.random() * (activity_list.length - 1) + 1);
@@ -76,5 +77,3 @@ client.on('message', message => {
     });
   }
 });
-
-client.login(process.env.KEY);
