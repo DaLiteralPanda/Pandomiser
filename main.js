@@ -62,22 +62,22 @@ client.on('message', message => {
 
   if (message.content === `${prefix}randomw`) {
     fs.readFile(wordPath, 'utf8', function(err, data) {
-		let words = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]
-		message.channel.send(words)
+      let words = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]
+      message.channel.send(words)
     })
   };
 
   if (message.content === `${prefix}randomq`) {
     fs.readFile(questionPath, 'utf8', function(err, data) { 
-		let questions = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]
-		message.channel.send(questions);
+      let questions = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]
+      message.channel.send(questions);
     })
   };
 
   if (message.content === `${prefix}randomQuote`) {
     fs.readFile(quotePath, 'utf8', function(err, data) {
-		let markovQuotes = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]
-		message.channel.send(markovQuotes);
+      let markovQuotes = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]
+      message.channel.send(markovQuotes);
     })
   };
 
