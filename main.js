@@ -4,9 +4,9 @@ const fs = require('fs');
 const path = require('path');
 const prefix = "p!"
 var markovQuotes, words, questions;
-const quotePath = __dirname + 'data/quotes.txt';
-const questionPath = __dirname + 'data/questions.txt';
-const wordPath = __dirname + 'data/words.txt';
+const quotePath = __dirname + '/data/quotes.txt';
+const questionPath = __dirname + '/data/questions.txt';
+const wordPath = __dirname + '/data/words.txt';
 client.login(process.env.KEY);
 const activity_list = [
   `${prefix}help`,
