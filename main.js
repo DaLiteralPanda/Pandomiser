@@ -83,7 +83,7 @@ client.on('message', message => {
 
   if (message.content.startsWith(`${prefix}suggestion`)) {
     const suggestion = message.content.replace(`${prefix}suggestion `, "");
-    client.channels.cache.get("730476984194433163").send(`"${suggestion}" - ${message.author.tag}`).then(msg => {
+    client.channels.cache.get("730476984194433163").send(`"${suggestion}" - <@${message.author.id}>`).then(msg => {
       msg.react("✅");
       msg.react("❎")
     });
