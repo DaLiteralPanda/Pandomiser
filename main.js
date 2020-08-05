@@ -49,7 +49,8 @@ const help = new MessageEmbed()
   .addField("How about a random question?", `${prefix}randomq`)
   .addField("A random *fake* quote?", `${prefix}randomQuote`)
   .addField("Something you'd like to see added to me?", `${prefix}suggestion [suggestion]`)
-  .addField("Want me in your server?", `${prefix}invite`);
+  .addField("Want me in your server?", `${prefix}invite`)
+  .addField("Want to be in my server?", `${prefix}support`)
 
 client.on('message', message => {
   if (message.content === `${prefix}invite`) {
@@ -80,9 +81,23 @@ client.on('message', message => {
       message.channel.send(markovQuotes);
     })
   };
+  
+  if (message.content === `${prefix}support`) {
+    const embed = new MessageEmbed()
+      .setURL("https://discord.gg/F4RUHc3")
+      .setColor("bbdf32")
+      .setAuthor("Pandomiser", "https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
+      .setThumbnail("https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
+      .setFooter("Made by <@478903410159255572> | <@579013278047535115> | <@579292491606523914>")
+      .addField("Join our support server if you think I am acting incorrectly!", "[Invite link](https://discord.gg/F4RUHc3)");
+  }
 
   if (message.content.startsWith(`${prefix}suggestion`)) {
     const suggestion = message.content.replace(`${prefix}suggestion `, "");
+    if (suggestion === "") {
+      message.reply("You did not give a valid suggestion, please do `p!suggestion [suggestion].");
+      message.channel.send("Please contact one of the staff members of this bot if you do not think this is correct.")
+    }
     client.channels.cache.get("730476984194433163").send(`"${suggestion}" - <@${message.author.id}>`).then(msg => {
       msg.react("✅");
       msg.react("❎")
