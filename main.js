@@ -2,105 +2,79 @@ const { Client, MessageEmbed, Discord, ClientUser } = require('discord.js');
 const client = new Client();
 const fs = require('fs');
 const path = require('path');
-//prefix = 'p!'
+const prefix = "p!"
+var markovQuotes, words, questions;
+const quotePath = __dirname + '/data/quotes.txt';
+const questionPath = __dirname + '/data/questions.txt';
+const wordPath = __dirname + '/data/words.txt';
+const activity_list = [
+  `${prefix}help`,
+  `${prefix}invite`,
+  `${client.guilds.cache.size} servers!`
+]
 
-// Runs when Bot is ready
 client.on('ready', () => {
+  setInterval(() => {
+        const index = Math.floor(Math.random() * (activity_list.length - 1) + 1);
+        client.user.setActivity(activity_list[index]);
+    }, 60000);
   console.log("Bot Online!");
 
   client.user.setActivity("p!help");
   client.guilds.cache.forEach((guild) => {
     console.log(guild.name);
-});
+  });
+})
 
-//invite command
-    const invite = {
-    color: "#bbdf32",
-    author: {
-    name: 'Pandomiser',
-    icon_url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
-    },
-    thumbnail: {
-    url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg',
-    },
-    fields: [{
-    name: 'Thanks for inviting our bot to your server!',
-    value: `[Invite link](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=387136&scope=bot)`,
-    }],
-    footer: {
-    text: 'Made by riad#9084 | DaLiteralPanda#9453',
-    },
-    };
+const embedInvite = new MessageEmbed()
+  .setURL("https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=387136&scope=bot")
+  .setColor("bbdf32")
+  .setAuthor("Pandomiser", "https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
+  .setThumbnail("https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
+  .setFooter("Made by <@579013278047535115> | <@579292491606523914>")
+  .addField("Thanks for inviting me to your server!", "[Invite link](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=387136&scope=bot)");
+
+const help = new MessageEmbed()
+  .setTitle("Help!")
+  .setThumbnail("https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
+  .setColor("bbdf32")
+  .addField("Want a random word?", `${prefix}randomw`)
+  .addField("How about a random question?", `${prefix}randomq`)
+  .addField("A random *fake* quote?", `${prefix}randomQuote`)
+  .addField("Something you'd like to see added to me?", `${prefix}suggestion [suggestion]`)
+  .addField("Want me in your server?", `${prefix}invite`);
 
 client.on('message', message => {
-  if (message.content === `p!invite`) {
-    message.channel.send({embed: invite});
+  if (message.content === `${prefix}invite`) {
+    message.channel.send(embedInvite);
   };
-});
-// help command
-const help = {
-  title: 'Help Command',
-  thumbnail: { url: 'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
-  color: '#bbdf32',
-  fields: [
-    {name: 'Want to generate random words?', value: `p!randomw`},
-    {name: 'Want to generate some random questions?', value: `p!randomq`},
-    {name: "Want to get inspired (aka get some quotes)? NOT REAL QUOTES LMAO", value: `p!randomQuote`},
-    {name: "Want to suggest something?", value: `p!suggestion [Suggetion here]`},
-    {name: 'Want to invite the bot?', value: `p!invite`},
-  ],
-  //image: { url'https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg'},
-};
 
-client.on('message', message => {
-  if (message.content === `p!help`) {
-    message.channel.send({embed: help});
+  if (message.content === `${prefix}help`) {
+    message.channel.send(help);
   };
-});
 
-// random word command
-const wordPath = path.join(__dirname, './data/words.txt');
-client.on('message', message => {
-  if (message.content === "p!randomw") {
-    fs.readFile(wordPath, 'utf-8', (err, data) => {
-      if (err) throw err;
-      let words = data.split("\n");
-      let word = Math.floor(Math.random() * words.length);
-      message.channel.send(words[word]);
+  if (message.content === `${prefix}randomw`) {
+    fs.readFile(wordPath, 'utf8', function(err, data) {words = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]})
+    message.channel.send(words)
+  };
+
+  if (message.content === `${prefix}randomq`) {
+    fs.readFile(questionPath, 'utf8', function(err, data) {questions = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]})
+    message.channel.send(questions);
+  };
+
+  if (message.content === `${prefix}randomQuote`) {
+    fs.readFile(quotePath, 'utf8', function(err, data) {markovQuotes = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]})
+    message.channel.send(markovQuotes);
+  };
+
+  if (message.content.startsWith(`${prefix}suggestion`)) {
+    const suggestion = message.content.replace(`${prefix}suggestion `, "");
+    client.channels.cache.get("730476984194433163").send(`"${suggestion}" - ${message.author.tag}`).then(msg => {
+      msg.react("✅");
+      msg.react("❎")
     });
-  };
-});
-
-const questionPath = path.join(__dirname, './data/questions.txt');
-client.on('message', message => {
-  if (message.content === "p!randomq") {
-    fs.readFile(questionPath, 'utf-8', (err, data) => {
-      if (err) throw err;
-      let questions = data.split("\n");
-      let question = Math.floor(Math.random() * questions.length);
-      message.channel.send(questions[question]);
-    });
-  };
-});
-
-const quotePath = path.join(__dirname, './data/quotes.txt');
-client.on('message', message => {
-  if (message.content === "p!randomQuote") {
-    fs.readFile(quotePath, 'utf-8', (err, data) => {
-      if (err) throw err;
-      let quotes = data.split("\n");
-      let quote = Math.floor(Math.random() * quotes.length);
-      message.channel.send(quotes[quote]);
-    });
-  };
-});
-
-client.on('message', message => {
-  if (message.content.startsWith("p!suggestion")) {
-    const suggestion = message.content.replace("p!suggestion ", "");
-    client.channels.cache.get("730476984194433163").send(suggestion).then(msg => { msg.react("✅"); msg.react("❎")});
   }
 });
-client.login(process.env.KEY);
 
-// process.env.KEY
+client.login(process.env.KEY);
