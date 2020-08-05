@@ -3,11 +3,12 @@ const client = new Client();
 const fs = require('fs');
 const path = require('path');
 const prefix = "p!"
-var markovQuotes, words, questions;
 const quotePath = __dirname + '/data/quotes.txt';
 const questionPath = __dirname + '/data/questions.txt';
 const wordPath = __dirname + '/data/words.txt';
+
 client.login(process.env.KEY);
+
 const activity_list = [
   `${prefix}help`,
   `${prefix}invite`,
@@ -60,18 +61,24 @@ client.on('message', message => {
   };
 
   if (message.content === `${prefix}randomw`) {
-    fs.readFile(wordPath, 'utf8', function(err, data) {words = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]})
-    message.channel.send(words)
+    fs.readFile(wordPath, 'utf8', function(err, data) {
+      let words = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]
+      message.channel.send(words)
+    })
   };
 
   if (message.content === `${prefix}randomq`) {
-    fs.readFile(questionPath, 'utf8', function(err, data) {questions = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]})
-    message.channel.send(questions);
+    fs.readFile(questionPath, 'utf8', function(err, data) { 
+      let questions = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]
+      message.channel.send(questions);
+    })
   };
 
   if (message.content === `${prefix}randomQuote`) {
-    fs.readFile(quotePath, 'utf8', function(err, data) {markovQuotes = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]})
-    message.channel.send(markovQuotes);
+    fs.readFile(quotePath, 'utf8', function(err, data) {
+      let markovQuotes = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]
+      message.channel.send(markovQuotes);
+    })
   };
 
   if (message.content.startsWith(`${prefix}suggestion`)) {
