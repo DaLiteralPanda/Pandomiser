@@ -11,12 +11,6 @@ client.on('ready', () => {
   client.user.setActivity("p!help");
   client.guilds.cache.forEach((guild) => {
     console.log(guild.name);
-  bot_commands = '727206999317676132';
-  genral = '727206852923883551';
-});
-  let genralChannel = client.channels.cache.get(genral);
-  let botChannel = client.channels.cache.get(bot_commands);
-  //botChannel.send("I am online boiii!");
 });
 
 //invite command
