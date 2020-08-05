@@ -6,6 +6,9 @@ const prefix = "p!"
 const quotePath = __dirname + '/data/quotes.txt';
 const questionPath = __dirname + '/data/questions.txt';
 const wordPath = __dirname + '/data/words.txt';
+const Trello = require("trello")
+const trello = new Trello("Application key", "User token")
+
 
 client.login(process.env.KEY);
 
@@ -104,3 +107,14 @@ client.on('message', message => {
     });
   }
 });
+
+client.on('messageReactionAdd', async message => {
+  const filter = async (reaction, user) => {
+    return ['<:approved:740647440063004793>'].includes(reaction.emoji.name) && user.id !== client.user.id;
+  }
+  message.awaitReactions(filter, { max: 1 })
+    .then(async collected => {
+      if (collected.first().author.id !=== "579292491606523914" || collected.first().author.id !=== "579013278047535115" || collected.first().author.id !=== "478903410159255572" && message.channel.id !=== "730476984194433163") return false;
+      trello.addCard(message.content, function(err) {if (err) console.log(err)})
+    })
+})
