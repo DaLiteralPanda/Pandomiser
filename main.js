@@ -13,7 +13,7 @@ const activity_list = [
   `${prefix}invite`,
   `${client.guilds.cache.size} servers!`
 ]
-
+// process.env.KEY
 client.on('ready', () => {
   const activity_list = [
     `${prefix}help`,
