@@ -95,6 +95,34 @@ client.on('message', message => {
       .addField("Join our support server if you think I am acting incorrectly!", "[Invite link](https://discord.gg/F4RUHc3)");
   }
 
+  if(message.content.startsWith(`${prefix}randomRange`)) {
+    const args = message.content.replace(`${prefix}randomRange`, "").split(" ").slice(1);
+
+    if(args[0]) {
+      let min, max;
+
+	  // There is only one argument
+      if(!args[1]) {
+        min = 0;
+        max = Number(args[0]);
+      }
+	  // Two arguments
+      else {
+        min = Number(args[0]);
+        max = Number(args[1]);
+
+        // Minimum is actually maximum, so swap
+        if(min > max) {
+          max = min;
+          min = 0;
+	    }
+      }
+
+      const num = Math.floor(Math.random() * (max - min)) + min;
+      message.channel.send(num);
+    }
+  }
+
   if (message.content.startsWith(`${prefix}suggestion`)) {
     const suggestion = message.content.replace(`${prefix}suggestion `, "");
     if (suggestion === "") {
