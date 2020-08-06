@@ -7,7 +7,7 @@ const quotePath = __dirname + '/data/quotes.txt';
 const questionPath = __dirname + '/data/questions.txt';
 const wordPath = __dirname + '/data/words.txt';
 const Trello = require("trello")
-const trello = new Trello("Application key", "User token")
+const trello = new Trello(process.env.Trello_KEY, process.env.Trello_User_KEY);
 
 
 client.login(process.env.KEY);
