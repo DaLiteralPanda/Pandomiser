@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/RishitOMG/ABBP_Bot#readme",
   "dependencies": {
-    "discord.js": "^12.2.0"
+    "discord.js": "^12.2.0",
+    "trello": "^0.10.0"
   }
 }

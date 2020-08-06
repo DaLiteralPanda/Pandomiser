@@ -114,7 +114,7 @@ client.on('messageReactionAdd', async message => {
   }
   message.awaitReactions(filter, { max: 1 })
     .then(async collected => {
-      if (collected.first().author.id !=== "579292491606523914" || collected.first().author.id !=== "579013278047535115" || collected.first().author.id !=== "478903410159255572" && message.channel.id !=== "730476984194433163") return false;
+      if (collected.first().author.id !== "579292491606523914" || collected.first().author.id !== "579013278047535115" || collected.first().author.id !== "478903410159255572" && message.channel.id !== "730476984194433163") return false;
       trello.addCard(message.content, function(err) {if (err) console.log(err)})
     })
 })
