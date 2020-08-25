@@ -41,7 +41,7 @@ const embedInvite = new MessageEmbed()
   .setColor("bbdf32")
   .setAuthor("Pandomiser", "https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
   .setThumbnail("https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
-  .setFooter("Made by <@478903410159255572> | <@579013278047535115> | <@579292491606523914>")
+  .setFooter("Made by DaLiteralPanda#9453 | riad#9084 | William_#3483")
   .addField("Thanks for inviting me to your server!", "[Invite link](https://discord.com/api/oauth2/authorize?client_id=727208128071991307&permissions=387136&scope=bot)");
 
 const help = new MessageEmbed()
@@ -93,6 +93,7 @@ client.on('message', message => {
       .setThumbnail("https://media.discordapp.net/attachments/731529488671703142/731538158403059792/improved_logo.jpg")
       .setFooter("Made by <@478903410159255572> | <@579013278047535115> | <@579292491606523914>")
       .addField("Join our support server if you think I am acting incorrectly!", "[Invite link](https://discord.gg/F4RUHc3)");
+    message.channel.send(embed)
   }
 
   if(message.content.startsWith(`${prefix}randomRange`)) {
