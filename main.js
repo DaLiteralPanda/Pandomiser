@@ -61,12 +61,10 @@ const help = new MessageEmbed()
 
 client.on('message', message => {
 
-  // Command Loader
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
-
 
     // Invite command
     if (message.content === `${prefix}invite`) {
@@ -89,16 +87,18 @@ client.on('message', message => {
         msg.react("❎")
       });
     }
+
+    // Command Loader
+    if (!client.commands.has(command)) return;
+
+    try {
+      client.commands.get(command).execute(message, args);
+    } catch (error) {
+      console.error(error);
+      message.reply('there was an error trying to execute that command!');
+    };
   });
 
-  if (!client.commands.has(command)) return;
-
-  try {
-    client.commands.get(command).execute(message, args);
-  } catch (error) {
-    console.error(error);
-    message.reply('there was an error trying to execute that command!');
-  };
 
   client.on('messageReactionAdd', async message => {
     const filter = async (reaction, user) => {
@@ -109,5 +109,3 @@ client.on('message', message => {
         if (collected.first().author.id !== "579292491606523914" || collected.first().author.id !== "579013278047535115" || collected.first().author.id !== "478903410159255572" && message.channel.id !== "730476984194433163") return false;
         trello.addCard(message.content, function(err) {if (err) console.log(err)})
       });
-
-});
