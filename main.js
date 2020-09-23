@@ -100,7 +100,6 @@ client.on('message', message => {
         if (collected.first().author.id !== "579292491606523914" || collected.first().author.id !== "579013278047535115" || collected.first().author.id !== "478903410159255572" && message.channel.id !== "730476984194433163") return false;
         trello.addCard(message.content, function(err) {if (err) console.log(err)})
       });
-  });
 
 	if (!client.commands.has(command)) return;
 
@@ -109,4 +108,5 @@ client.on('message', message => {
 	} catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
-	}
+	};
+});
