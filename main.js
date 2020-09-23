@@ -19,14 +19,6 @@ for (const file of commandFiles) {
 // Login
 client.login(process.env.KEY);
 
-const activity_list = [
-  `${prefix}help`,
-  `${prefix}invite`,
-  `${client.guilds.cache.size} servers!`
-]
-
-
-
 client.on('ready', () => {
   const activity_list = [
     `${prefix}help`,
