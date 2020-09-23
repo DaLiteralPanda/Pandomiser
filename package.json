@@ -1,23 +1,26 @@
 {
-  "name": "abbp",
-  "version": "1.2.1",
-  "description": "A randomiser bot",
+  "name": "pandomiser",
+  "version": "1.3.0",
+  "description": "A randomiser bot!",
   "main": "main.js",
   "scripts": {
     "test": "node main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RishitOMG/ABBP_Bot.git"
+    "url": "git+https://github.com/DaLiteralPanda/Pandomiser.git"
   },
-  "author": "Panda and Riad",
+  "author": "William, DaLiteralPanda, idhank and Riad",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RishitOMG/ABBP_Bot/issues"
+    "url": "https://github.com/DaLiteralPanda/Pandomiser/issues"
   },
-  "homepage": "https://github.com/RishitOMG/ABBP_Bot#readme",
+  "homepage": "https://github.com/DaLiteralPanda/Pandomiser#readme",
   "dependencies": {
-    "discord.js": "^12.2.0",
+    "discord.js": "^12.3.1",
+    "fs": "0.0.1-security",
+    "package.json": "^2.0.1",
+    "path": "^0.12.7",
     "trello": "^0.10.0"
   }
 }
