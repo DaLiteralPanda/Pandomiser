@@ -8,6 +8,6 @@ module.exports = {
     fs.readFile(quotePath, 'utf8', function(err, data) {
       let markovQuotes = data.split("\n")[Math.floor(Math.random() * data.split("\n").length)]
       message.channel.send(markovQuotes);
-    })
+    });
 	},
 };
