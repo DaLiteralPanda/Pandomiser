@@ -2,7 +2,7 @@ module.exports = {
 	name: 'randomRange',
 	description: 'Generates Random Numbers',
 	execute(message, args) {
-    const gs = message.content.replace(`${prefix}randomRange`, "").split(" ").slice(1);
+  const gs = message.content.replace(`${prefix}randomRange`, "").split(" ").slice(1);
 
     if(gs[0]) {
       let min, max;
