@@ -1,21 +1,22 @@
+const prefix = "p!";
 module.exports = {
 	name: 'randomRange',
 	description: 'Generates Random Numbers',
 	execute(message, args) {
-  const gs = message.content.replace(`${prefix}randomRange`, "").split(" ").slice(1);
+  const nums = message.content.replace(`${prefix}randomRange`, "").split(" ").slice(1);
 
-    if(gs[0]) {
+    if(nums[0]) {
       let min, max;
 
 	  // There is only one argument
-      if(!gs[1]) {
+      if(!nums[1]) {
         min = 0;
-        max = Number(gs[0]);
+        max = Number(nums[0]);
       }
 	  // Two arguments
       else {
-        min = Number(gs[0]);
-        max = Number(gs[1]);
+        min = Number(nums[0]);
+        max = Number(nums[1]);
 
         // Minimum is actually maximum, so swap
         if(min > max) {
