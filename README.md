@@ -13,7 +13,7 @@ Generating a random question (conversation starter)
 
 Generating a random word
 
-Generating a random quote through a Markov chain (made by Will, these quotes are not real and are generated just for fun.)
+Generating a random quote through a Markov chain (made by [Will](https://github.com/LucAngevare/), these quotes are not real and are generated just for fun.)
 
 And many more are to come!
 
