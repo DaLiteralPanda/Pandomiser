@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 module.exports = {
 	name: 'randomFakeQuote',
-	description: 'Generates a Random fake Quotes',
+	description: 'Generates a random fake quote',
 	execute(message, args) {
 	const quotePath = path.join( __dirname, '../data/fakeQuotes.txt');
     fs.readFile(quotePath, 'utf8', function(err, data) {
