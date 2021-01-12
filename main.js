@@ -17,7 +17,9 @@ for (const file of commandFiles) {
 }
 
 // Login
-client.login(process.env.KEY);
+require('dotenv').config();
+const token = process.env.KEY;
+client.login(token);
 
 client.on('ready', () => {
   const activity_list = [
