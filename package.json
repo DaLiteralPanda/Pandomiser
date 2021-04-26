@@ -1,0 +1,31 @@
+{
+  "name": "pandomiser",
+  "version": "1.3.0",
+  "description": "A randomiser bot!",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaLiteralPanda/Pandomiser.git"
+  },
+  "author": "William, DaLiteralPanda, idhank and Riad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaLiteralPanda/Pandomiser/issues"
+  },
+  "homepage": "https://github.com/DaLiteralPanda/Pandomiser#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "node-cron": "^3.0.0",
+    "package.json": "^2.0.1",
+    "path": "^0.12.7",
+    "trello": "^0.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
